@@ -7,6 +7,9 @@ namespace Assignment.Contracts.Data
         IAppRepository App { get; }
         IUserRepository User { get; }
         IProjectRepository Project {get;}
+        ITrackerRepository Tracker {get;}
+        ITicketRepository Ticket {get;}
         Task CommitAsync();
+
     }
 }

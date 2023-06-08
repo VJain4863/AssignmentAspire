@@ -20,7 +20,7 @@
                 <tbody>
                     <tr *ngFor="let day of getWeekDays(),let x = index">
                         <td id="day{{x}}">{{day|date}}</td>
-                        <td><textarea [(ngModel)]="value1" id="text{{x}}" rows="4" cols="50" ></textarea></td>
+                        <td><textarea  id="text{{x}}" rows="4" cols="50" ></textarea></td>
                         <td>
                             <a (click)="onSaveStatus()" class="btn btn-sm btn-primary me-1" id="save{{x}}">Save</a>
                             <a (click)="onSubmitStatus()" class="btn btn-sm btn-primary me-1" id="save{{x}}">Submit</a>

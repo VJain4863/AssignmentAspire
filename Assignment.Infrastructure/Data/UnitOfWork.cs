@@ -18,6 +18,10 @@ namespace Assignment.Core.Data
         public IUserRepository User => new UserRepository(_context);
 
         public IProjectRepository Project => new ProjectRepository(_context);
+
+        public ITrackerRepository Tracker => new TrackerRepository(_context);
+
+        public ITicketRepository Ticket => new TicketRepository(_context);
         
         public async Task CommitAsync()
         {

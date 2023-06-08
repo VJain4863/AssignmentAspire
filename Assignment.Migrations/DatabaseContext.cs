@@ -23,5 +23,7 @@ namespace Assignment.Migrations
         public DbSet<App> App { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Project> Project { get; set; }
+        public DbSet<Tracker> Tracker { get; set; }
+        public DbSet<Ticket> Ticket { get; set; }
     }
 }

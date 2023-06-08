@@ -11,6 +11,8 @@ namespace Assignment.Core.Mapper
             CreateMap<App, AppDTO>();
             CreateMap<User, UserDTO>();
             CreateMap<Project, ProjectDTO>();
+            CreateMap<Tracker, TrackerDTO>();
+            CreateMap<Ticket, TicketDTO>();
         }
     }
 }
