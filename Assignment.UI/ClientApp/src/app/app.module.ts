@@ -10,6 +10,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { ProjectComponent } from './project/project.component';
 import { TrackerComponent } from './project/tracker/tracker.component';
+import { AddTicketComponent } from "./project/ticket/add-ticket.component";
+import { LayoutTicketComponent } from "./project/ticket/layout-ticket.component";
+import { TimeLineComponent } from "./project/ticket/timeline.component";
 
 @NgModule({
     imports: [
@@ -24,7 +27,10 @@ import { TrackerComponent } from './project/tracker/tracker.component';
         AlertComponent,
         HomeComponent,
         ProjectComponent,
-        TrackerComponent
+        TrackerComponent,
+        AddTicketComponent,
+        LayoutTicketComponent,
+        TimeLineComponent
         
         
     ],

@@ -1,0 +1,41 @@
+<h1>{{title}}</h1>
+<form *ngIf="!loading" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Ticket Title</label>
+            <input title="TicketTitle" type="text" formControlName="tickettitle" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.tickettitle.errors }" />
+            <div *ngIf="submitted && f.tickettitle.errors" class="invalid-feedback">
+                <div *ngIf="f.tickettitle.errors.required">Ticket Title is required</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Ticket Start Date</label>
+            <input title="TicketStart" type="date" formControlName="ticketstart" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ticketstart.errors }" />
+            <div *ngIf="submitted && f.ticketstart.errors" class="invalid-feedback">
+                <div *ngIf="f.ticketstart.errors.required">Ticket Start Date is required</div>
+            </div>
+        </div>
+        <div class="mb-3 col">
+            <label class="form-label">Ticket End Date</label>
+            <input title="TicketEnd" type="date" formControlName="ticketend" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ticketend.errors }" />
+            <div *ngIf="submitted && f.ticketend.errors" class="invalid-feedback">
+                <div *ngIf="f.ticketend.errors.required">Ticket End Date is required</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <button type="submit" [disabled]="submitting" class="btn btn-primary">
+            <span *ngIf="submitting" class="spinner-border spinner-border-sm me-1"></span>
+            Save
+        </button>
+        <a routerLink="/project" class="btn btn-link">Cancel</a>
+    </div>
+
+</form>
+<div *ngIf="loading" class="text-center m-5">
+    <span class="spinner-border spinner-border-lg align-center"></span>
+</div>
