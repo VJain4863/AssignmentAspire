@@ -32,8 +32,8 @@ export class AddTicketComponent implements OnInit {
         this.id = this.route.snapshot.params['id'];
         this.form = this.formBuilder.group({
             tickettitle: ['', Validators.required],
-            ticketstart: ['', Validators.required],
-            ticketend: ['', Validators.required]
+            ticketstartdate: ['', Validators.required],
+            ticketenddate: ['', Validators.required]
         });
 
         this.title = 'Add Ticket';
@@ -66,9 +66,10 @@ export class AddTicketComponent implements OnInit {
             .subscribe({
                 next: () => {
                     this.alertService.success('Ticket detail saved', { keepAfterRouteChange: true });
-                    this.router.navigateByUrl('/Ticket');
+                    this.router.navigateByUrl('/weekly');
                 },
                 error: (error: any) => {
+                    console.log("Inside error log");
                     this.alertService.error(error);
                     this.submitting = false;
                 }

@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { Ticket } from '../_models/ticket';
 import { environment } from 'src/environments/environment';
 import { AccountService } from './account.service';
+import {formatDate} from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class TicketService {
@@ -24,7 +25,11 @@ export class TicketService {
 
     public registerTicket(ticket: Ticket) : Observable<any> {
         ticket.userName = this.user.userName;
-        return this.http.post<any>(`${environment.apiUrl}/api/Ticket`, Ticket);
+        var ticketDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+        ticket.ticketCreationDate = ticketDate.toString();
+        ticket.projectId = 1;
+        console.log(ticket);
+        return this.http.post<any>(`${environment.apiUrl}/api/Ticket`, ticket);
     }
     public deleteTicket(id:number):Observable<number>{
         console.log("please confirm",id);

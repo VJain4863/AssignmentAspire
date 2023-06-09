@@ -55,48 +55,48 @@ namespace Assignment.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("{id}")]
-        [ProducesResponseType(typeof(TicketDTO), (int)HttpStatusCode.OK)]
-        [ProducesErrorResponseType(typeof(BaseResponseDTO))]
-        public async Task<IActionResult> GetById(int id)
-        {
-            try
-            {
-                var query = new GetAppByIdQuery(id);
-                var response = await _mediator.Send(query);
-                return Ok(response);
-            }
-            catch (EntityNotFoundException ex)
-            {
-                return NotFound(new BaseResponseDTO
-                {
-                    IsSuccess = false,
-                    Errors = new string[] { ex.Message }
-                });
-            }
-        }
+        // [HttpGet]
+        // [Route("{id}")]
+        // [ProducesResponseType(typeof(TicketDTO), (int)HttpStatusCode.OK)]
+        // [ProducesErrorResponseType(typeof(BaseResponseDTO))]
+        // public async Task<IActionResult> GetById(int id)
+        // {
+        //     try
+        //     {
+        //         var query = new GetAppByIdQuery(id);
+        //         var response = await _mediator.Send(query);
+        //         return Ok(response);
+        //     }
+        //     catch (EntityNotFoundException ex)
+        //     {
+        //         return NotFound(new BaseResponseDTO
+        //         {
+        //             IsSuccess = false,
+        //             Errors = new string[] { ex.Message }
+        //         });
+        //     }
+        // }
 
-        [HttpDelete]
-        [Route("{id}")]
-        [ProducesResponseType(typeof(TicketDTO), (int)HttpStatusCode.OK)]
-        [ProducesErrorResponseType(typeof(BaseResponseDTO))]
-        public async Task<IActionResult> Delete(int id)
-        {
-            try{
-                var query = new DeleteTicketByIdQuery(id);
-                var response = await _mediator.Send(query);
-                return Ok(response);
-            }
-            catch (EntityNotFoundException ex)
-            {
-                return NotFound(new BaseResponseDTO
-                {
-                    IsSuccess = false,
-                    Errors = new string[] { ex.Message }
-                });
-            }
-        }
+        // [HttpDelete]
+        // [Route("{id}")]
+        // [ProducesResponseType(typeof(TicketDTO), (int)HttpStatusCode.OK)]
+        // [ProducesErrorResponseType(typeof(BaseResponseDTO))]
+        // public async Task<IActionResult> Delete(int id)
+        // {
+        //     try{
+        //         var query = new DeleteTicketByIdQuery(id);
+        //         var response = await _mediator.Send(query);
+        //         return Ok(response);
+        //     }
+        //     catch (EntityNotFoundException ex)
+        //     {
+        //         return NotFound(new BaseResponseDTO
+        //         {
+        //             IsSuccess = false,
+        //             Errors = new string[] { ex.Message }
+        //         });
+        //     }
+        // }
 
         // [HttpPut("{id}")]
         // [ProducesResponseType(typeof(TicketDTO), (int)HttpStatusCode.OK)]

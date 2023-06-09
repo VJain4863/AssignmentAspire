@@ -5,9 +5,14 @@ import { first } from 'rxjs/operators';
 import { AlertService } from '../../_services/alert.service';
 import { ProjectService } from '../../_services/project.service';
 import { DatePipe } from '@angular/common';
+import { Ticket } from 'src/app/_models/ticket';
+import { TicketService } from 'src/app/_services/ticket.service';
 
 
-@Component({ templateUrl: 'weekly-tracker.component.html' })
+@Component({ 
+    templateUrl: 'weekly-tracker.component.html' ,
+    styleUrls:['./weekly-tracker.component.css'] 
+})
 export class WeeklyTrackerComponent implements OnInit {
     str?:string;
     form!: FormGroup;
@@ -25,6 +30,7 @@ export class WeeklyTrackerComponent implements OnInit {
     prevLast:any;
     selectedValue:any;
     startOfTheWeek:any;
+    tickets?: Ticket[];
     
     changeValue(e:any){
         console.log(e.target.value);
@@ -35,7 +41,8 @@ export class WeeklyTrackerComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private projectService: ProjectService,
-        private alertService:AlertService
+        private alertService:AlertService,
+        private ticketService:TicketService
     ) {}
 
     ngOnInit() {
@@ -58,6 +65,8 @@ export class WeeklyTrackerComponent implements OnInit {
         this.prev_first = new Date(date.setDate(this.prevLast-6)).toUTCString();
 
         this.selectedValue = "currWeek";
+        this.ticketService.getAllTicket().subscribe(tickets => this.tickets=tickets);
+        //console.log(this.tickets);//= projects.filter(x=>x.userName==this.user?.userName))
 
     }
     
